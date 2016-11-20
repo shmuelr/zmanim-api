@@ -1,0 +1,59 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--                                                               -->
+    <!-- Consider inlining CSS to reduce the number of requested files -->
+    <!--                                                               -->
+    <link type="text/css" rel="stylesheet" href="Zmanim_Web_App.css">
+
+    <!--                                           -->
+    <!-- Any title is fine                         -->
+    <!--                                           -->
+    <title>Web Application Starter Project</title>
+    
+    <!--                                           -->
+    <!-- This script loads your compiled module.   -->
+    <!-- If you add any GWT meta tags, they must   -->
+    <!-- be added before this line.                -->
+    <!--                                           -->
+    
+  </head>
+
+  <!--                                           -->
+  <!-- The body can have arbitrary html, or      -->
+  <!-- you can leave the body empty if you want  -->
+  <!-- to create a completely dynamic UI.        -->
+  <!--                                           -->
+  <body>
+
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+
+    <h1>Zmanim WebApp  beta</h1>
+    Sample Request:
+   <p>
+     {
+"latitude": 34.052235,
+"longitude": -118.243683,
+"elevation": 233,
+"date": "2016-11-20",
+"name": "Los Angeles",
+"timeZone":"America/Los_Angeles"
+}
+     <p>
+       <p><a href="/zmanim_web_app/test?zman_request=%7B%0A%22latitude%22%3A%2034.052235%2C%0A%22longitude%22%3A%20-118.243683%2C%0A%22elevation%22%3A%20233%2C%0A%22date%22%3A%20%222016-11-20%22%2C%0A%22name%22%3A%20%22Los%20Angeles%22%2C%0A%22timeZone%22%3A%22America%2FLos_Angeles%22%0A%7D">Sample Link</a></p>
+   
+  </body>
+</html>
