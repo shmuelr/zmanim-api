@@ -6,7 +6,6 @@ before_install:
   -in zmanim-travis-key.json.enc -out zmanim-travis-key.json -d
 
 - gcloud auth activate-service-account --key-file zmanim-travis-key.json || die "unable to authenticate service account for gcloud"
-- gcloud components update || die "unable to update all components"
 
 deploy:
   provider: gae
