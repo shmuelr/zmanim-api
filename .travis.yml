@@ -11,3 +11,4 @@ deploy:
   project: zmanim-app
   on: master
   verbosity: debug
+  config: src/main/webapp/WEB-INF/appengine-web.xml
