@@ -19,4 +19,6 @@
 ### Deploying
 
     $ gradle appengineDeploy
-
+    
+    
+Sample instance: https://zmanim-app.appspot.com/
