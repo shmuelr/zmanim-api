@@ -1,16 +1,20 @@
 package com.shmuelrosansky.zmanim.shared;
 
+import net.sourceforge.zmanim.ZmanimCalendar;
+import net.sourceforge.zmanim.util.GeoLocation;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import net.sourceforge.zmanim.ZmanimCalendar;
-import net.sourceforge.zmanim.util.GeoLocation;
-
 public class ZmanimCalculator {
 
 	public static ZmanResponse getZmanim(ZmanRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException("ZmanRequest cannot be null!");
+        }
+
 		ZmanResponse response = new ZmanResponse();
 		
 		TimeZone timeZone = TimeZone.getTimeZone(request.getTimeZone());
