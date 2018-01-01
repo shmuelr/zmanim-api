@@ -19,7 +19,6 @@ buildscript {      // Configuration for building
   }
   dependencies {
     classpath 'com.google.cloud.tools:appengine-gradle-plugin:+'
-    classpath 'org.akhikhl.gretty:gretty:+'
     classpath 'com.google.appengine:gradle-appengine-plugin:1.9.17'
   }
 }
