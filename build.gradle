@@ -19,7 +19,7 @@ buildscript {      // Configuration for building
   }
   dependencies {
     classpath 'com.google.cloud.tools:appengine-gradle-plugin:+'
-    classpath 'org.akhikhl.gretty:gretty:+'
+    classpath 'com.google.appengine:gradle-appengine-plugin:1.9.17'
   }
 }
 
@@ -28,53 +28,53 @@ repositories {   // repositories for JARs you access in your code
     url 'https://maven-central.storage.googleapis.com'             // Google's mirror of Maven Central
   }
 
-//maven {
-//  url 'https://oss.sonatype.org/content/repositories/snapshots' // SNAPSHOT repository if needed
-//}
-
   jcenter()
   mavenCentral()
 }
 
 apply plugin: 'java'
 apply plugin: 'war'
-apply plugin: 'org.akhikhl.gretty'
-apply plugin: 'com.google.cloud.tools.appengine'
+apply plugin: 'appengine'
 
 dependencies {
+  appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.+'
+
+  compile 'com.google.appengine:appengine-api-1.0-sdk:+'  // Latest App Engine Api's
   providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
-  providedCompile 'com.google.appengine:appengine:+'
-// Add your dependencies here.
+
+  // Add your dependencies here.
 
   // https://mvnrepository.com/artifact/com.google.code.gson/gson
-  compile 'com.google.code.gson:gson:2.8.0'
+  compile 'com.google.code.gson:gson:2.8.2'
 
   // KosherJava jar file
   compile files('src/main/webapp/lib/zmanim-1.3.0.jar')
 }
 
-// [START gretty]
-gretty {
-    port = 8080
-    contextPath = '/'
-    servletContainer = 'jetty9'  // What App Engine Flexible uses
-}
-// [END gretty]
-
 // [START model]
-appengine {
+appengine {  // App Engine tasks configuration
+  downloadSdk = true
+}
 
-  deploy {   // deploy configuration
-    stopPreviousVersion = true  // default - stop the current version
-    promote = true              // default - & make this the current version
+test {
+  useJUnit()
+  testLogging.showStandardStreams = true
+  beforeTest { descriptor ->
+    logger.lifecycle("test: " + descriptor + "  Running")
   }
 
+  onOutput { descriptor, event ->
+    logger.lifecycle("test: " + descriptor + ": " + event.message )
+  }
+  afterTest { descriptor, result ->
+    logger.lifecycle("test: " + descriptor + ": " + result )
+  }
 }
 // [END model]
 
 group = 'com.shmuelrosansky.zmanim'   // Generated output GroupId
-version = '1.0-SNAPSHOT'          // Version in generated output
+version = 'alpha'          // Version in generated output
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 // [END gradle]
